@@ -1,0 +1,13 @@
+query Works {
+  works {
+    createdAt
+    id
+    slug
+    subtitle
+    title
+    updatedAt
+    photoUrl {
+      url
+    }
+  }
+}
