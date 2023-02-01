@@ -12,15 +12,15 @@ export function Work() {
     const { data } = useWorksQuery();
 
     return (
-        <section className="section" id="work">
-            <div className="container mx-auto">
-                <div className="flex flex-col lg:flex-row gap-x-10">
+        <section className="" id="work">
+            <div className="container h-full mx-auto">
+                <div className="grid grid-cols-2 gap-x-10">
                     <motion.div
                         variants={fadeIn('right', 0.3)}
                         initial="hidden"
                         whileInView={'show'}
                         viewport={{ once: false, amount: 0.3 }}
-                        className="flex flex-1 flex-col gap-y-12 mb-10 lg:mb-0"
+                        className="flex flex-col gap-y-12 mb-10 lg:mb-0"
                     >
                         <div>
                             <h2 className="h2 leading-tight text-accent">
@@ -94,6 +94,18 @@ export function Work() {
                             </div>
                         </a>
                     </motion.div>
+                </div>
+
+                <div className='grid grid-cols-2 pt-10 gap-x-10 gap-y-10'>
+                    {data?.works.map((work) => (
+                        <WorkCard
+                            key={work.id}
+                            id={work.id}
+                            title={work.title}
+                            subtitle={work.subtitle}
+                            image={work.photoUrl.url}
+                        />
+                    ))}
                 </div>
             </div>
         </section>
